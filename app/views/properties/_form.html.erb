@@ -4,7 +4,7 @@
   <%= form.text_field :property_name %>
 
   <p><%= form.label :price %></p>
-  <%= form.text_field :price %><a>分</a>
+  <%= form.text_field :price %><a>円</a>
 
   <p><%= form.label :address %></p>
   <%= form.text_field :address %>
@@ -16,7 +16,7 @@
   <%= form.text_area :note %>
   
 
-  <% if action_name = :new %>
+  <% if action_name == 'new' %>
     <h3>最寄り駅１</h3>
       <%= form.fields_for :stations do |stations_form| %>
         <p><%= stations_form.label :station_name %></p>
@@ -40,9 +40,10 @@
         <p><%= stations_form.label :walk %></p>
         <%= stations_form.text_field :walk %><a>分</a>
       <% end %>
+
   <% else %>
+    <% station = 1 %>
     <%= form.fields_for :stations do |stations_form| %>
-      <% station = 1 %>
       <h3><%= "最寄り駅#{station}" %></h3>
       <p><%= stations_form.label :station_name %></p>
       <%= stations_form.text_field :station_name %>
@@ -52,6 +53,8 @@
 
       <p><%= stations_form.label :walk %></p>
       <%= stations_form.text_field :walk %><a>分</a>
+
+      <% station += 1 %>
     <% end %>
   <% end %>
 

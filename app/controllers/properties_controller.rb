@@ -19,12 +19,24 @@ class PropertiesController < ApplicationController
   end
 
   def edit
+    @property = Property.find(params[:id])
+    @property.stations.build
+
   end
 
   def update
+    @property = Property.find(params[:id])
+    if @property.update(property_params)
+      redirect_to properties_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @property = Property.find(params[:id])
+    @property.destroy
+    redirect_to properties_path
   end
 
   private
