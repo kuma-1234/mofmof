@@ -16,7 +16,7 @@
   <%= form.text_area :note %>
   
 
-  <% if action_name == :new %>
+  <% if action_name = :new %>
     <h3>最寄り駅１</h3>
       <%= form.fields_for :stations do |stations_form| %>
         <p><%= stations_form.label :station_name %></p>
