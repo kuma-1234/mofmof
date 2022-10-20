@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      property: 物件
+      station: 駅
+    attributes:
+      property:
+        property_name: 物件名
+        price: 賃料
+        address: 住所
+        age: 築年数
+        note: 備考
+      station:
+        station_name: 駅名
+        route_name: 路線名
+        walk: 徒歩何分
+  errors:
+    format: "%{attribute}%{message}"
+    messages: 
+      blank: を入力してください
+      too_short: は6文字以上で入力してください
+      invalid: 無効です
+      taken: はすでに使用されています 

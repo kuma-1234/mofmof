@@ -1,0 +1,30 @@
+<div class="property_content">  
+  <p>物件名：<%= @property.property_name %></p>
+
+  <p>賃料：<%= @property.property_name %></p>
+
+  <p>住所：<%= @property.property_name %></p>
+
+  <p>築年数：<%= @property.property_name %></p>
+
+  <p>備考：<%= @property.property_name %></p>
+</div>
+
+<hr>
+
+<div class="station_content">
+  <p>登録駅数：<%= @station_count %>駅</p>
+  <% station = 1 %>
+  <% @property.stations.each do |property_station| %>
+    <h3><%= "最寄り駅#{station}" %></h3>
+    <p>路線名<%= property_station.route_name %></p>
+    <p>駅名<%= property_station.station_name %></p>
+    <p>徒歩<%= property_station.walk %>分</p>
+    <% station += 1 %>
+  <% end %>
+</div>
+
+
+
+
+<p><%= link_to '編集',edit_property_path %> | <%=link_to '戻る', properties_path %></p>
