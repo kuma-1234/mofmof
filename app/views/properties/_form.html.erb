@@ -17,8 +17,35 @@
   
 
   <% if action_name == 'new' %>
-    <h3>最寄り駅１</h3>
+    <p>登録駅数：<%= %></p>
+      <h3>最寄り駅１</h3>
+        <%= form.fields_for :stations do |stations_form| %>
+          <p><%= stations_form.label :station_name %></p>
+          <%= stations_form.text_field :station_name %>
+
+          <p><%= stations_form.label :route_name %></p>
+          <%= stations_form.text_field :route_name %>
+
+          <p><%= stations_form.label :walk %></p>
+          <%= stations_form.text_field :walk %><a>分</a>
+        <% end %>
+
+      <h3>最寄り駅2</h3>
+        <%= form.fields_for :stations do |stations_form| %>
+          <p><%= stations_form.label :station_name %></p>
+          <%= stations_form.text_field :station_name %>
+
+          <p><%= stations_form.label :route_name %></p>
+          <%= stations_form.text_field :route_name %>
+
+          <p><%= stations_form.label :walk %></p>
+          <%= stations_form.text_field :walk %><a>分</a>
+        <% end %>
+
+    <% else %>
+      <% station = 1 %>
       <%= form.fields_for :stations do |stations_form| %>
+        <h3><%= "最寄り駅#{station}" %></h3>
         <p><%= stations_form.label :station_name %></p>
         <%= stations_form.text_field :station_name %>
 
@@ -27,35 +54,9 @@
 
         <p><%= stations_form.label :walk %></p>
         <%= stations_form.text_field :walk %><a>分</a>
+
+        <% station += 1 %>
       <% end %>
-
-    <h3>最寄り駅2</h3>
-      <%= form.fields_for :stations do |stations_form| %>
-        <p><%= stations_form.label :station_name %></p>
-        <%= stations_form.text_field :station_name %>
-
-        <p><%= stations_form.label :route_name %></p>
-        <%= stations_form.text_field :route_name %>
-
-        <p><%= stations_form.label :walk %></p>
-        <%= stations_form.text_field :walk %><a>分</a>
-      <% end %>
-
-  <% else %>
-    <% station = 1 %>
-    <%= form.fields_for :stations do |stations_form| %>
-      <h3><%= "最寄り駅#{station}" %></h3>
-      <p><%= stations_form.label :station_name %></p>
-      <%= stations_form.text_field :station_name %>
-
-      <p><%= stations_form.label :route_name %></p>
-      <%= stations_form.text_field :route_name %>
-
-      <p><%= stations_form.label :walk %></p>
-      <%= stations_form.text_field :walk %><a>分</a>
-
-      <% station += 1 %>
-    <% end %>
   <% end %>
 
 

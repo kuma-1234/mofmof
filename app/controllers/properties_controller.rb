@@ -21,7 +21,6 @@ class PropertiesController < ApplicationController
   def edit
     @property = Property.find(params[:id])
     @property.stations.build
-
   end
 
   def update
