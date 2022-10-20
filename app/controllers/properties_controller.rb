@@ -48,7 +48,7 @@ class PropertiesController < ApplicationController
       :age,
       :note,
       stations_attributes:
-        %i(id station_name route_name walk)
+        %i(id station_name route_name walk _destroy)
     )
   end
 end
