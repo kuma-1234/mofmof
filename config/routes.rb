@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :property
-  resources :station
+  resources :properties
+  resources :stations
 end
