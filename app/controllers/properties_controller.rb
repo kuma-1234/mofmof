@@ -7,6 +7,7 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @property.stations.build
+    @station_count = @property.stations.count
   end
 
   def create
@@ -21,7 +22,6 @@ class PropertiesController < ApplicationController
   def edit
     @property = Property.find(params[:id])
     @property.stations.build
-    @station_count = @property.stations.count
   end
 
   def update
