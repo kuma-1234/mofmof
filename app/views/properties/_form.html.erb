@@ -17,9 +17,8 @@
   
 <hr>
 
-  <p>登録駅数：<%= @station_count %></p>
-
   <% if action_name == "new" %>
+  <p>登録駅数：<%= @station_count %>駅</p>
     <h3>最寄り駅１</h3>
       <%= form.fields_for :stations do |stations_form| %>
         <p><%= stations_form.label :route_name %></p>
