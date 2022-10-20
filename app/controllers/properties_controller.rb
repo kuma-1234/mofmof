@@ -21,6 +21,7 @@ class PropertiesController < ApplicationController
   def edit
     @property = Property.find(params[:id])
     @property.stations.build
+    @station_count = @property.stations.count
   end
 
   def update
@@ -36,6 +37,11 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
     @property.destroy
     redirect_to properties_path
+  end
+
+  def show
+    @property = Property.find(params[:id])
+    @station_count = @property.stations.count
   end
 
   private
